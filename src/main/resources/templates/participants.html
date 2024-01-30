@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Привет участникам соревнований</title>
+  </head>
+  <body>
+    <h1>Привет участникам соревнований!!!</h1>
+    <h2>Список участников соревнований</h2>
+    <table>
+      <tr>
+        <th>Фамилия, имя</th>
+        <th>Возраст</th>
+      </tr>
+      <tr th:each="p : ${persons}">
+        <td th:text="${p.name}"></td>
+        <td th:text="${p.age}"></td>
+      </tr>
+    </table>
+
+    <h2>Регистрация участников</h2>
+    <form action="/participants" method="post">
+      Фамилия, имя: <input type="text" name="name" /><br />
+      Возраст: <input type="number" step="any" name="age" /><br />
+      <button type="submit">Добавить</button>
+    </form>
+  </body>
+</html>
